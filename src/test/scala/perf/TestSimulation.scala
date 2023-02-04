@@ -14,7 +14,7 @@ class TestSimulation extends Simulation {
     .disableFollowRedirect
 
   setUp(
-    CommonScenario().inject(atOnceUsers(5)
+    CommonScenario().inject(atOnceUsers(1)
     )
   ).protocols(httpProtocol)
 }

@@ -10,19 +10,22 @@ object CommonScenario{
 
 class CommonScenario {
 
-  //группа симуляций
+  //открытие сайта
   val open = group("open"){
-    exec(welcome)
+    exec(webtours)
     .exec(welcomePl)
       .exec(navPl)
   }
 
+  //авторизация на сайте
   val login = group("login"){
     exec(loginPl)
+      .exec(navPlMenu)
+        .exec(loginPlIntro)
   }
 
+  //вызов основного сценария
   val mainScenario = scenario("mainScenario")
-    //подключаем feeder к сценарию (подключается ко всем вызовам exec)
     .feed(Feeders.users)
     .exec(open)
     .exec(login)
