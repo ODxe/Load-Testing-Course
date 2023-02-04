@@ -20,8 +20,15 @@ class CommonScenario {
   //авторизация на сайте
   val login = group("login"){
     exec(loginPl)
-      .exec(navPlMenu)
+      .exec(navPlHome)
         .exec(loginPlIntro)
+  }
+
+  //переход на страницу покупки билета
+  val flights = group("flights") {
+    exec(welcomePlSearch)
+      .exec(navPlFlights)
+        .exec(reservationsPl)
   }
 
   //вызов основного сценария
@@ -29,5 +36,5 @@ class CommonScenario {
     .feed(Feeders.users)
     .exec(open)
     .exec(login)
-
+    .exec(flights)
 }
