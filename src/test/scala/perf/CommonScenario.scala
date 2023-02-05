@@ -31,10 +31,21 @@ class CommonScenario {
         .exec(reservationsPl)
   }
 
-  //вызов основного сценария
+  //шаги по оформлению покупки билета
+  val buyTicket = group("buyTicket"){
+    exec(reservationsPlFlightInformation)
+      .exec(reservationsPlChooseTicket)
+        .exec(reservationsPlBuyTicket)
+  }
+
+  //вызов основного сценария нагрузки
   val mainScenario = scenario("mainScenario")
     .feed(Feeders.users)
+    .feed(Feeders.cities)
+    .feed(Feeders.seatingPreference)
+    .feed(Feeders.typeOfSeat)
     .exec(open)
     .exec(login)
     .exec(flights)
+    .exec(buyTicket)
 }
