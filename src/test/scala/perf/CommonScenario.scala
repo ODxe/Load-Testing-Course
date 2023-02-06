@@ -38,6 +38,13 @@ class CommonScenario {
         .exec(reservationsPlBuyTicket)
   }
 
+  //переход на страницу с купленными билетами
+  val allTicketsPage = group("allTicketsPage") {
+    exec(welcomePlItinerary)
+      .exec(navPlItinerary)
+        .exec(itineraryPl)
+  }
+
   //вызов основного сценария нагрузки
   val mainScenario = scenario("mainScenario")
     .feed(Feeders.users)
@@ -47,4 +54,5 @@ class CommonScenario {
     .exec(login)
     .exec(flights)
     .exec(buyTicket)
+    .exec(allTicketsPage)
 }

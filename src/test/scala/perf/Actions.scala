@@ -49,6 +49,21 @@ object Actions {
     .queryParam("page", "welcome")
     .check(status is 200)
 
+  val welcomePlItinerary = http("/cgi-bin/welcome.pl?page=itinerary")
+    .get("/cgi-bin/welcome.pl")
+    .queryParam("page", "itinerary")
+    .check(status is 200)
+
+  val navPlItinerary = http("/cgi-bin/nav.pl/page=menu&in=itinerary")
+    .get("/cgi-bin/nav.pl")
+    .queryParam("page", "menu")
+    .queryParam("in", "itinerary")
+    .check(status is 200)
+
+  val itineraryPl = http("/cgi-bin/itinerary.pl")
+    .get("/cgi-bin/itinerary.pl")
+    .check(status is 200)
+
   //------------------------------POST METHODS----------------------------------
 
   val loginPl = http("/cgi-bin/login.pl")
