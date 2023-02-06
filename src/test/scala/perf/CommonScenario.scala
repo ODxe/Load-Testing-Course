@@ -45,6 +45,11 @@ class CommonScenario {
         .exec(itineraryPl)
   }
 
+  //выход из системы
+  val signOff = group("signOff") {
+    exec(welcomePlSignOff)
+  }
+
   //вызов основного сценария нагрузки
   val mainScenario = scenario("mainScenario")
     .feed(Feeders.users)
@@ -55,4 +60,5 @@ class CommonScenario {
     .exec(flights)
     .exec(buyTicket)
     .exec(allTicketsPage)
+    .exec(signOff)
 }

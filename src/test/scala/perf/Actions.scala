@@ -64,6 +64,11 @@ object Actions {
     .get("/cgi-bin/itinerary.pl")
     .check(status is 200)
 
+  val welcomePlSignOff = http("/cgi-bin/welcome.pl?signOff=1")
+    .get("/cgi-bin/welcome.pl")
+    .queryParam("signOff", "1")
+    .check(status is 200)
+
   //------------------------------POST METHODS----------------------------------
 
   val loginPl = http("/cgi-bin/login.pl")
