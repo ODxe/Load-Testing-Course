@@ -41,9 +41,9 @@ class CommonScenario {
   //вызов основного сценария нагрузки
   val mainScenario = scenario("mainScenario")
     .feed(Feeders.users)
-    .feed(Feeders.cities)
-    .feed(Feeders.seatingPreference)
-    .feed(Feeders.typeOfSeat)
+   // .feed(Feeders.cities)
+   // .feed(Feeders.seatingPreference)
+   // .feed(Feeders.typeOfSeat)
     .exec(open)
     .exec(login)
     .exec(flights)
